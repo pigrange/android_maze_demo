@@ -3,6 +3,7 @@ package com.pigrange.maze
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.SpannableString
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_launch.*
@@ -12,8 +13,7 @@ class LaunchActivity : BaseActivity() {
     private var exitTime = 0L
 
     companion object {
-        const val HEIGHT = "height"
-        const val WIDTH = "width"
+        const val SIZE = "size"
     }
 
     lateinit var imm: InputMethodManager
@@ -23,35 +23,35 @@ class LaunchActivity : BaseActivity() {
 
         imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
-        edit_height_wrapper.setOnClickListener {
-            edit_height.isFocusable = true
-            edit_height.isFocusableInTouchMode = true
-            edit_height.requestFocus()
-            imm.showSoftInput(edit_height, 0)
-        }
-        edit_width_wrapper.setOnClickListener {
-            edit_width.isFocusable = true
-            edit_width.isFocusableInTouchMode = true
-            edit_width.requestFocus()
-            imm.showSoftInput(edit_width, 0)
+        edit_Size_wrapper.setOnClickListener {
+            edit_cellSize.isFocusable = true
+            edit_cellSize.isFocusableInTouchMode = true
+            edit_cellSize.requestFocus()
+            imm.showSoftInput(edit_cellSize, 0)
         }
 
-        luanch_generate_maze.setOnClickListener {
-            val height = edit_height.text.toString()
-            val width = edit_width.text.toString()
+        launch_generate_maze.setOnClickListener {
+            val size = edit_cellSize.text.toString()
 
-            if (height == "" || width == "") {
+            if (size == "") {
                 showToast("请输入正确的尺寸")
+                return@setOnClickListener
+            }
+            if (size.toInt() > 80) {
+                showToast("性能有限，不建议创建尺寸大于80的迷宫")
+                return@setOnClickListener
+            }
+            if (size.toInt() < 10) {
+                showToast("这样做是不方便创建迷宫的")
                 return@setOnClickListener
             }
 
             val intent = Intent(this, MazeActivity::class.java)
-            intent.putExtra(HEIGHT, height)
-            intent.putExtra(WIDTH, width)
+            intent.putExtra(SIZE, size)
             startActivity(intent)
+            edit_cellSize.setText("")
         }
     }
-
 
     override fun onBackPressed() {
         if (isBackExist) {
@@ -60,7 +60,6 @@ class LaunchActivity : BaseActivity() {
                 exitTime = System.currentTimeMillis()
             } else {
                 finish()
-                System.exit(0)
             }
         }
     }

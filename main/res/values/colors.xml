@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorLightBlue">#878cab</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorFree">#90ffffff</color>
+    <color name="colorBlock">#d39797</color>
+    <color name="colorGreen">#9fbc7b</color>
+    <color name="colorDeepBlue">#404368</color>
+    <color name="colorBGButton">#202545</color>
+    <color name="colorInput">#475073</color>
+</resources>

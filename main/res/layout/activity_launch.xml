@@ -51,7 +51,7 @@
             android:id="@+id/height_input_wrapper"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            app:layout_constraintBottom_toTopOf="@id/luanch_generate_maze"
+            app:layout_constraintBottom_toTopOf="@id/launch_generate_maze"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -59,75 +59,36 @@
             app:layout_constraintVertical_chainStyle="packed">
 
             <LinearLayout
-                android:id="@+id/edit_width_wrapper"
-                android:layout_width="130dp"
+                android:id="@+id/edit_Size_wrapper"
+                android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_input"
                 android:orientation="horizontal"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/edit_height_wrapper">
-
-                <TextView
-                    android:layout_marginStart="10dp"
-                    android:id="@+id/hint_width"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:text="Width:"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="13sp" />
-
-                <EditText
-                    android:textCursorDrawable="@drawable/corsor"
-                    android:maxLength="3"
-                    android:inputType="number"
-                    android:layout_marginStart="10dp"
-                    android:textSize="14sp"
-                    android:textColor="@color/colorWhite"
-                    android:id="@+id/edit_width"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@null" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/edit_height_wrapper"
-                android:layout_width="130dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/bg_input"
-                android:orientation="horizontal"
-                app:layout_constraintLeft_toRightOf="@id/edit_width_wrapper"
                 app:layout_constraintRight_toRightOf="parent">
 
-                <TextView
-                    android:layout_marginStart="10dp"
-                    android:id="@+id/hint_height"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:text="Height:"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="13sp" />
 
                 <EditText
-                    android:textCursorDrawable="@drawable/corsor"
-                    android:maxLength="3"
-                    android:inputType="number"
-                    android:layout_marginStart="10dp"
-                    android:textSize="14sp"
-                    android:textColor="@color/colorWhite"
-                    android:id="@+id/edit_height"
+                    android:gravity="center"
+                    android:id="@+id/edit_cellSize"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@null" />
+                    android:layout_marginStart="10dp"
+                    android:background="@null"
+                    android:textColorHint="@color/colorLightBlue"
+                    android:hint="请输入迷宫的尺寸"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textColor="@color/colorWhite"
+                    android:textCursorDrawable="@drawable/corsor"
+                    android:textSize="14sp" />
             </LinearLayout>
 
 
         </android.support.constraint.ConstraintLayout>
 
         <Button
-            android:id="@+id/luanch_generate_maze"
+            android:id="@+id/launch_generate_maze"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginTop="30dp"
@@ -149,7 +110,7 @@
             android:textSize="10sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/luanch_generate_maze" />
+            app:layout_constraintTop_toBottomOf="@id/launch_generate_maze" />
     </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>

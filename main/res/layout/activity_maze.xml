@@ -14,21 +14,29 @@
         android:orientation="vertical">
 
         <FrameLayout
-            android:id="@+id/activity_main_container"
+            android:id="@+id/maze_container"
             android:layout_width="match_parent"
             android:layout_height="383dp"
             android:background="@color/colorLightBlue">
 
-            <FrameLayout
+            <!--<FrameLayout-->
+                <!--android:layout_gravity="center"-->
+                <!--android:id="@+id/activity_main_fill"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@color/colorWhite" />  -->
+
+            <com.pigrange.maze.MazeView
                 android:layout_gravity="center"
-                android:id="@+id/activity_main_fill"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:background="@drawable/bg_fill" />
+                android:id="@+id/maze_fill"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite" />
 
         </FrameLayout>
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/maze_footer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -41,9 +49,9 @@
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:orientation="horizontal"
-                android:layout_marginBottom="10dp"
-                app:layout_constraintBottom_toTopOf="@id/maze_remove_barrier"
-                app:layout_constraintLeft_toLeftOf="@id/maze_remove_barrier"
+                android:layout_marginBottom="15dp"
+                app:layout_constraintBottom_toTopOf="@id/maze_refresh"
+                app:layout_constraintLeft_toLeftOf="@id/maze_refresh"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed">
 
@@ -68,7 +76,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/maze_remove_barrier"
+                android:id="@+id/maze_refresh"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
@@ -84,13 +92,14 @@
                 android:id="@+id/maze_find_way_out"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/bg_button"
                 android:text="@string/str_find_way_out"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/maze_remove_barrier" />
+                app:layout_constraintTop_toBottomOf="@id/maze_refresh" />
 
         </android.support.constraint.ConstraintLayout>
 

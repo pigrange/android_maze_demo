@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Maze</string>
+    <string name="text_generate_maze">开 始 生 成 迷 宫</string>
+    <string name="str_maze_icon">M   A   Z   E</string>
+    <string name="str_maze_intro">For Data Structure Experiment</string>
+    <string name="str_designer">designed by jiang</string>
+    <string name="str_add_barrier">添  加  障  碍</string>
+    <string name="str_remove_barrier">重  置  迷  宫</string>
+    <string name="str_find_way_out">开  始  寻  路</string>
+    <string name="star_current_state_ready">Ready</string>
+    <string name="star_current_state_done">Done</string>
+</resources>
