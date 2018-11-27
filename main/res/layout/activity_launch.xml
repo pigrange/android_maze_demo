@@ -8,7 +8,6 @@
     tools:context=".LaunchActivity">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4">
@@ -41,7 +40,6 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/footer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
@@ -69,8 +67,8 @@
 
 
                 <EditText
-                    android:gravity="center"
                     android:id="@+id/edit_cellSize"
+                    android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"

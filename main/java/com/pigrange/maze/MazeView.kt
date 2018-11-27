@@ -1,10 +1,7 @@
 package com.pigrange.maze
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Rect
+import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 
@@ -51,6 +48,6 @@ class MazeView(ctx: Context, attributeSet: AttributeSet) : View(ctx, attributeSe
         }
     }
 
-    class Cell(var state: Int, val mRect: Rect)
+    class Cell(var state: Int, val mRect: RectF)
 
 }

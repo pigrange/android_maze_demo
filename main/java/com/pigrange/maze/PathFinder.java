@@ -34,6 +34,7 @@ public class PathFinder {
             closeList.add(curMinFNode);
             if (curMinFNode.y == endY && curMinFNode.x == endX) {
                 endNode = curMinFNode;
+                endNode.count = tryCount;
                 break;
             } else {
                 //东
@@ -105,6 +106,7 @@ public class PathFinder {
             this.y = y;
         }
 
+        int count;
         int y;
         int x;
         int F = Integer.MAX_VALUE;

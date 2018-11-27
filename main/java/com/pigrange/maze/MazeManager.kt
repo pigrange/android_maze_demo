@@ -1,7 +1,7 @@
 package com.pigrange.maze
 
 import android.content.Context
-import android.graphics.Rect
+import android.graphics.RectF
 import android.view.View
 
 class MazeManager(private val holder: MazeActivity.ViewHolder, private val context: Context) : View.OnClickListener {
@@ -10,7 +10,7 @@ class MazeManager(private val holder: MazeActivity.ViewHolder, private val conte
 
     private var cellCount = 0
 
-    private var cellSize: Int = 30
+    private var cellSize: Float = 30f
     private lateinit var mCellMap: Array<Array<MazeView.Cell?>>
     private val activity = context as BaseActivity
 
@@ -45,21 +45,21 @@ class MazeManager(private val holder: MazeActivity.ViewHolder, private val conte
             containerWidth = holder.container.width
 
             val wid = if (cellSize * cellCount > containerWidth) {
-                Math.min(cellSize, containerWidth / cellCount)
+                Math.min(cellSize, containerWidth.toFloat() / cellCount)
             } else {
-                Math.max(cellSize, containerWidth / cellCount)
+                Math.max(cellSize, containerWidth.toFloat() / cellCount)
             }
 
             val het = if (cellSize * cellCount > containerHeight) {
-                Math.min(cellSize, containerHeight / cellCount)
+                Math.min(cellSize, containerHeight.toFloat() / cellCount)
             } else {
-                Math.max(cellSize, containerHeight / cellCount)
+                Math.max(cellSize, containerHeight.toFloat() / cellCount)
             }
 
             cellSize = Math.min(het, wid)
 
-            holder.mFill.layoutParams.width = cellSize * cellCount
-            holder.mFill.layoutParams.height = cellSize * cellCount
+            holder.mFill.layoutParams.width = (cellSize * cellCount).toInt()
+            holder.mFill.layoutParams.height = (cellSize * cellCount).toInt()
 
             initCellMap()
         }
@@ -69,25 +69,35 @@ class MazeManager(private val holder: MazeActivity.ViewHolder, private val conte
         mCellMap = Array(cellCount) { arrayOfNulls<MazeView.Cell>(cellCount) }
         for (y in 0 until cellCount) {
             for (x in 0 until cellCount) {
-                val rect = Rect(x * cellSize, y * cellSize, (x + 1) * cellSize, (y + 1) * cellSize)
+                val rect = RectF(x * cellSize, y * cellSize, (x + 1) * cellSize, (y + 1) * cellSize)
                 val cell = MazeView.Cell(mazeArray[y][x], rect)
                 mCellMap[y][x] = cell
             }
         }
         holder.mFill.setCells(mCellMap)
-        holder.currentMode.setText(R.string.star_current_state_ready)
+        holder.currentMode.setText(R.string.str_current_state_ready)
     }
 
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.maze_find_way_out -> {
                 var endNode = pathFinder.findPath()
+                if (endNode == null) {
+                    holder.currentMode.setText(R.string.stt_current_state_noRoad)
+                    return
+                }
+
+                val count = endNode.count
+                val str = activity.resources.getString(R.string.str_current_state_done)
+                val done = String.format(str,count)
+
                 while (endNode != null) {
                     mCellMap[endNode.y][endNode.x]!!.state = MazeView.PATH
                     endNode = endNode.fatherNode
                 }
+
                 holder.mFill.requestLayout()
-                holder.currentMode.setText(R.string.star_current_state_done)
+                holder.currentMode.text = done
             }
 
             R.id.maze_refresh -> {
