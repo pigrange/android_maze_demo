@@ -10,12 +10,12 @@ import kotlinx.android.synthetic.main.activity_launch.*
 class LaunchActivity : BaseActivity() {
     private var isBackExist: Boolean = true
     private var exitTime = 0L
+    lateinit var imm: InputMethodManager
 
     companion object {
         const val SIZE = "size"
     }
 
-    lateinit var imm: InputMethodManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_launch)

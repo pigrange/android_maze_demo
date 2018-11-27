@@ -32,14 +32,11 @@ class MazeActivity : BaseActivity() {
         manager.initMaze(cellCount)
     }
 
-
     class ViewHolder {
         lateinit var container: FrameLayout
         lateinit var mFill: MazeView
         lateinit var footer: ConstraintLayout
-
         lateinit var refresh: Button
-
         lateinit var findWayOut: Button
         lateinit var currentMode: TextView
     }

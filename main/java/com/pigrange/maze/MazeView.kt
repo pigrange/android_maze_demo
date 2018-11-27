@@ -1,7 +1,10 @@
 package com.pigrange.maze
 
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 
@@ -33,7 +36,6 @@ class MazeView(ctx: Context, attributeSet: AttributeSet) : View(ctx, attributeSe
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         if (mCells != null) {
-            //todo draw all cells
             for (y in 0 until mCells!!.size) {
                 for (x in 0 until mCells!![0].size) {
                     val cell = mCells!![y][x]

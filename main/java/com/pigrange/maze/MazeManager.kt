@@ -11,9 +11,9 @@ class MazeManager(private val holder: MazeActivity.ViewHolder, private val conte
     private var cellCount = 0
 
     private var cellSize: Float = 30f
-    private lateinit var mCellMap: Array<Array<MazeView.Cell?>>
     private val activity = context as BaseActivity
 
+    private lateinit var mCellMap: Array<Array<MazeView.Cell?>>
     private lateinit var mazeGenerator: MazeGenerator
     private lateinit var mazeArray: Array<IntArray>
     private lateinit var pathFinder: PathFinder
