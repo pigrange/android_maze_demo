@@ -1,10 +1,11 @@
-package com.pigrange.maze
+package com.pigrange.maze.ui
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import com.pigrange.maze.R
 import kotlinx.android.synthetic.main.activity_launch.*
 
 class LaunchActivity : BaseActivity() {

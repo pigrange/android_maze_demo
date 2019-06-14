@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MazeActivity">
+    tools:context=".ui.MazeActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:baselineAligned="false"
@@ -19,17 +20,17 @@
             android:background="@color/colorLightBlue">
 
             <!--<FrameLayout-->
-                <!--android:layout_gravity="center"-->
-                <!--android:id="@+id/activity_main_fill"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:background="@color/colorWhite" />  -->
+            <!--android:layout_gravity="center"-->
+            <!--android:id="@+id/activity_main_fill"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/colorWhite" />  -->
 
-            <com.pigrange.maze.MazeView
+            <com.pigrange.maze.customView.MazeView
                 android:id="@+id/maze_fill"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:background="@color/colorWhite" />
 
         </FrameLayout>
@@ -47,8 +48,8 @@
                 android:id="@+id/maze_status"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
-                android:orientation="horizontal"
                 android:layout_marginBottom="15dp"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@id/maze_refresh"
                 app:layout_constraintLeft_toLeftOf="@id/maze_refresh"
                 app:layout_constraintTop_toTopOf="parent"
@@ -82,23 +83,75 @@
                 android:background="@drawable/bg_button"
                 android:text="@string/str_remove_barrier"
                 android:textColor="@color/colorWhite"
-                app:layout_constraintBottom_toTopOf="@id/maze_find_way_out"
+                app:layout_constraintBottom_toTopOf="@id/button_group"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/maze_status" />
 
-            <Button
-                android:id="@+id/maze_find_way_out"
+            <LinearLayout
+                android:id="@+id/button_group"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/bg_button"
-                android:text="@string/str_find_way_out"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/line4"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/maze_refresh" />
+                app:layout_constraintTop_toBottomOf="@id/maze_refresh">
+
+                <Button
+                    android:id="@+id/A_STAR_find_way_out"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:text="@string/A_STAR_str_find_way_out"
+                    android:textColor="@color/colorWhite" />
+
+                <Button
+                    android:id="@+id/DFS_find_way_out"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:text="@string/DFS_str_find_way_out"
+                    android:textColor="@color/colorWhite" />
+
+                <Button
+                    android:id="@+id/BFS_find_way_out"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:text="@string/BFS_str_find_way_out"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line4"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_group">
+
+
+                <TextView
+                    android:id="@+id/maze_steps"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
+
 
         </android.support.constraint.ConstraintLayout>
 

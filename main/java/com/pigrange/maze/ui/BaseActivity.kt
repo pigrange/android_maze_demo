@@ -1,4 +1,4 @@
-package com.pigrange.maze
+package com.pigrange.maze.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast

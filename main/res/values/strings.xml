@@ -5,8 +5,11 @@
     <string name="str_maze_intro">For Data Structure Experiment</string>
     <string name="str_designer">designed by jiang</string>
     <string name="str_remove_barrier">重  置  迷  宫</string>
-    <string name="str_find_way_out">开  始  寻  路</string>
+    <string name="A_STAR_str_find_way_out">A STAR  寻  路</string>
+    <string name="DFS_str_find_way_out">DFS  寻  路</string>
+    <string name="BFS_str_find_way_out">BFS  寻  路</string>
     <string name="str_current_state_ready">Ready!</string>
-    <string name="str_current_state_done">Done! Count %d times! </string>
+    <string name="str_current_state_done">Done! Cost %d ms !</string>
     <string name="stt_current_state_noRoad">NoPath!</string>
+    <string name="find_way_result_steps">步数：%d !</string>
 </resources>
